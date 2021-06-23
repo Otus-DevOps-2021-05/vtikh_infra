@@ -1,0 +1,7 @@
+{
+	"folder_id": "aaaaabbbbb111199999",
+	"source_image_type": "ubuntu-XXXX-lts",
+	"key_path": "path-to-key.json",
+	"subnet_id": "xxxxxyyyyy888822222",
+	"username": "defaultuser"
+}
