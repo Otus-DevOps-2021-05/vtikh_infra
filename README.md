@@ -10,7 +10,7 @@ vtikh Infra repository
 1. Установить (packer)[https://www.packer.io/]
 1. Установить утилиту `yc` и подготовить окружение - создать УЗ в Яндекс.Облаке, или связать окружение с существующим аккаунтом
 1. подготовить файл `packer/variables.json`, основываясь на примере
-2. в корне репозитория выполнить `packer build -var-file packer/variables.json packer/ubuntu16.json`
+2. перейти в директорию `packer` и выполнить `packer build -var-file packer/variables.json packer/ubuntu16.json`
 3. после готовности образа создать на его основе ВМ и доустановить приложение в гостевой ОС в соответствии с командами скрипта `config-scripts/deploy.sh`
 
 ## ДЗ 04
