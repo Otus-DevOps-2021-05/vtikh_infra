@@ -1,6 +1,22 @@
 # vtikh_infra
 vtikh Infra repository
 
+## ДЗ 07
+
+В ДЗ настраивается инфраструктура с двумя ВМ. Инстансы описаны в виде модулей terraform, созданы 2 окружения - stage, prod
+
+### Использование
+
+1. перейти в одну из директорий - `terraform/stage` или `terraform/prod`
+2. создать файл `terraform.tfvars` со значениями переменных согласно образцу `terraform.tfvars.example`
+3. выполнить:
+
+```
+terraform init
+terraform plan
+terraform apply
+```
+
 ## ДЗ 06 - terraform-1
 
 ### Использование
