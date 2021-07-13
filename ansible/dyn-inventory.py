@@ -12,8 +12,10 @@ appserver_ip = data['outputs']['external_ip_address_app']['value']
 dbserver_ip = data['outputs']['external_ip_address_db']['value']
 
 # print out dynamic inventory
-json_out= json.dumps({'app':{'hosts': [appserver_ip]}, 'db':{'hosts': [dbserver_ip]}}, sort_keys=True, indent = 4)
+json_out = json.dumps({'app':{'hosts': [appserver_ip]}, 'db':{'hosts': [dbserver_ip]}}, sort_keys=True, indent = 4)
 print(json_out)
+
+# write inventory in invetory file
 f = open('inventory.json', 'w')
 f.write(json_out.replace('[','{').replace(']','}'))
 f.flush
