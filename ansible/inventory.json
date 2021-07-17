@@ -1,12 +1,17 @@
 {
     "app": {
         "hosts": {
-            "193.32.218.165"
+            "appserver": {
+                "ansible_host": "84.201.129.238"
+            }
         }
     },
     "db": {
         "hosts": {
-            "193.32.219.227"
+            "dbserver": {
+                "ansible_host": "130.193.51.50",
+                "internal_ip": "10.128.0.5"
+            }
         }
     }
 }
