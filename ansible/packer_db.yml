@@ -5,7 +5,9 @@
   tasks:
   - name: install prerequirements
     apt:
-      name: apt-transport-https,ca-certificates
+      pkg:
+        - apt-transport-https
+        - ca-certificates
       update_cache: true
   - name: add repository key
     ansible.builtin.apt_key:
