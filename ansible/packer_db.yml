@@ -1,0 +1,28 @@
+---
+- name: db server provision
+  hosts: all
+  become: true
+  tasks:
+  - name: install prerequirements
+    apt:
+      pkg:
+        - apt-transport-https
+        - ca-certificates
+      update_cache: true
+  - name: add repository key
+    apt_key:
+      url: https://www.mongodb.org/static/pgp/server-4.2.asc
+      state: present
+  - name: add mongodb repo
+    apt_repository:
+      repo: deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse
+      state: present
+  - name: install mongodb
+    apt:
+      name: mongodb-org
+      update_cache: true
+  - name: enabling mongod service
+    systemd:
+      name: mongod
+      state: started
+      enabled: true
