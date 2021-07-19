@@ -1,6 +1,36 @@
 # vtikh_infra
 vtikh Infra repository
 
+## ДЗ 10
+
+В задании:
+- провижнг ВМ переводится на роли ansible
+- Применяется внешняя роль из апстрима для развертывания веб-прокси
+- Проводится реоргиназация структуры каталога ansible
+- вводятся два окружения
+- осваивается работа с ansible vault
+
+### Стандартное задание
+
+Для развертывания окружений (при созданной ранее инфраструктуре с помощью terraform):
+
+```
+cd ansible
+# для окружения stage:
+ansible-galaxy install -r environments/stage/requirements.yml
+ansible-playbook playbooks/site.yml
+# для окружения prod:
+ansible-galaxy install -r environments/prod/requirements.yml
+ansible-playbook -i environments/prod/inventory.py playbooks/site.yml
+```
+
+В гостевых ОС также будут созданы пользователи в соответствии с зашифрованным с помощью ansible-vault файлом переменных `environments/<env>/credentials.yml`. Если хочется заглянуть в этот файл (надо знать ключ):
+
+```
+ansible-vault edit environments/<env>/credentials.yml
+```
+
+
 ## ДЗ 09 - ansible-2
 
 В задании выполняется провижн облачных ВМ, образов packer с помощью Ansible. На этих примерах изучаются:
@@ -8,7 +38,6 @@ vtikh Infra repository
 - тэги
 - ограничение целевых хостов (`--limit`)
 - импорт плейбуков
-- разделение окружений
 
 Также развивается история с динамическим invetory.
 
