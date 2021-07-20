@@ -9,8 +9,8 @@
     "db": {
         "hosts": {
             "dbserver": {
-                "ansible_host": "130.193.51.50",
-                "internal_ip": "10.128.0.5"
+                "ansible_host": "84.201.134.180",
+                "internal_ip": "10.128.0.28"
             }
         }
     }
