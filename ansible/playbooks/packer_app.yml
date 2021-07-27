@@ -1,9 +1,7 @@
 ---
-- name: app server provision
+- name: Configure App
   hosts: all
   become: true
-  tasks:
-    - name: install ruby and other components
-      apt:
-        name: ruby-full,ruby-bundler,build-essential,git
-        update_cache: true
+
+  roles:
+    - app

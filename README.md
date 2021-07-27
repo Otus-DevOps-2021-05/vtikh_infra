@@ -1,6 +1,54 @@
 # vtikh_infra
 vtikh Infra repository
 
+## ДЗ 11 - локальное тестирование ролей с Vagrant
+
+### vagrant ansible provisioner
+
+Теперь код позволяет развернуть роли с приложением локально в Vagrant:
+```
+cd ansible
+vagrant up
+```
+Приложение будет доступно по адресу [http://10.10.10.20:9292](http://10.10.10.20:9292)
+
+### тестирование с помощью molecule
+
+#### развертывание виртуального окружения python
+
+```
+sudo pip install virtualenv
+virtualenv proj.venv
+source proj.venv/bin/activate
+```
+Чтобы покинуть виртуальное окружение после работы с кодом из этого репозитория, нужно выполнить `deactivate`.
+
+#### molecule
+
+Для выполнения полного прогона тестов роли **db** достаточно:
+```
+cd ansible/roles/db
+molecule test
+```
+
+Также возможен ручной запуск этапов:
+```
+cd ansible/roles/db
+molecule create     # создание инстанса
+molecule login      # вход в инстанс
+molecule verify     # прогон теста molecule/default/test/test_default.py
+molecule destroy    # удаление окружения
+```
+
+#### packer
+
+Для создания образов packer теперь также использует роли Ansible. Команды сборки образов не изменились (из корня репозитория):
+
+```
+packer build -var-file packer/variables.json packer/app.json
+packer build -var-file packer/variables.json packer/db.json
+```
+
 ## ДЗ 10
 
 В задании:
