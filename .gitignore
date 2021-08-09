@@ -8,3 +8,10 @@ packer/variables.json
 .retry
 jdauphant.nginx
 *.pyc
+.vagrant/
+*.log
+.molecule
+.cache
+.pytest_cache
+.vscode
+*.venv
